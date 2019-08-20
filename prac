@@ -1,0 +1,425 @@
+https://www.geeksforgeeks.org/commonly-asked-data-structure-interview-questions-set-1/
+https://www.edureka.co/blog/interview-questions/python-interview-questions/
+https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-data-structure.php
+
+https://medium.com/velotio-perspectives/an-introduction-to-asynchronous-programming-in-python-af0189a88bbb  #Threading
+
+https://stackabuse.com/introduction-to-pythons-collections-module/
+
+
+
+def square_list(n):
+    the_list = []                         # Replace
+    for x in range(n):
+        y = x * x
+        the_list.append(y)                # these
+    print the_list
+square_list(15)
+
+
+def squares_all_of_them():
+    x = 0
+    while True:
+        yield x * x
+        x += 1
+
+squares = squares_all_of_them()
+for _ in range(4):
+    print(next(squares))
+
+
+b = 'abbbbccdddda'
+import itertools
+for i,j in itertools.groupby(b):
+    print i,len(list(j))
+
+
+ls = [1,2,3,4,5,6,7,8,9]
+print ls.reverse()
+ls.reverse()
+print ls
+
+dict = {'a':4,'b':45,'c':2,'d':30}
+print sorted([(value,key) for (key,value) in dict.items()])
+
+
+x = {'a': 1, 'b': 2}
+y = {'b': 3, 'c': 4}
+z= x.copy()
+z.update(y)
+print z
+
+
+booklist = [
+  {
+    "author": "Chinua Achebe",
+    "country": "Nigeria",
+    "imageLink": "images/things-fall-apart.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
+    "pages": 209,
+    "title": "Things Fall Apart",
+    "year": 1958
+  },
+
+   {
+    "author": "Joe Jackson",
+    "country": "USA",
+    "imageLink": "images/white_socks.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/white_sox",
+    "pages": 500,
+    "title": "My Shoes Hurt My Feet",
+    "year": 1919
+  }]
+#authors = [a['author'] for a in booklist]
+#print authors
+
+for b in booklist:
+    if b['author'] == 'Joe Jackson':
+        print (b)
+
+
+mylist = ['butter', 'jam', 'curd'] #Convert a List to String
+myStr = ', '.join(mylist)
+print myStr
+
+
+def square_list(n):
+    the_list = []                         # Replace
+    for x in range(n):
+        y = x * x
+        the_list.append(y)                # these
+    print the_list     
+square_list(15) 
+
+
+def squares_all_of_them():
+    x = 0
+    while True:
+        yield x * x
+        x += 1
+       
+squares = squares_all_of_them()
+for _ in range(4):
+    print(next(squares))
+
+
+b = 'abbbbccdddda'
+import itertools
+for i,j in itertools.groupby(b):
+    print i,len(list(j))
+
+
+ls = [1,2,3,4,5,6,7,8,9]
+print ls.reverse()
+ls.reverse()
+print ls
+
+dict = {'a':4,'b':45,'c':2,'d':30}
+print sorted([(value,key) for (key,value) in dict.items()])        
+
+
+x = {'a': 1, 'b': 2}
+y = {'b': 3, 'c': 4}
+z= x.copy()
+z.update(y)
+print z
+
+
+booklist = [
+  {
+    "author": "Chinua Achebe",
+    "country": "Nigeria",
+    "imageLink": "images/things-fall-apart.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
+    "pages": 209,
+    "title": "Things Fall Apart",
+    "year": 1958
+  },
+
+   {
+    "author": "Joe Jackson",
+    "country": "USA",
+    "imageLink": "images/white_socks.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/white_sox",
+    "pages": 500,
+    "title": "My Shoes Hurt My Feet",
+    "year": 1919
+  }]
+#authors = [a['author'] for a in booklist]
+#print authors
+
+for b in booklist:
+    if b['author'] == 'Joe Jackson':
+        print (b)
+        
+a = [['Robert'], ['Tommy'], ['Joe'], ['Will']]
+dict = {}
+for i,j in enumerate(a):
+    dict[i]=j
+    print dict
+    
+    
+dct = {}
+for i in range(len(a)):
+    dct['Name'] = a
+print dct  
+    
+        
+li = ["man","nut","bag","rat","cat","dog","fog","cat","man"]        
+dict = {}
+for i,j in enumerate(li):
+    if j not in dict: 
+        dict[j]=i
+print dict    
+
+
+#fibonacci
+a=0,
+b=1
+li = []
+def fibno(a,b):
+    for i in range(10):
+        a,b=b,a+b
+        #print a
+        li.append(a)
+    print li  
+
+fibno(0,1)  
+
+--------------------------------------------
+GENERATORS are functions that can be paused and resumed on the fly, returning an object that can be iterated over.
+ Unlike lists, they are lazy and thus produce items one at a time and only when asked. So they are much more memory efficient when dealing with large datasets
+ 
+ HTTPS://REALPYTHON.COM/INTRODUCTION-TO-PYTHON-GENERATORS/
+ 
+
+---------------------------------------------------------------
+DECORATORS are very powerful and useful tool in Python since it allows programmers to modify the behavior of function or class.
+ Decorators allow us to wrap another function in order to extend the behavior of wrapped function, without permanently modifying it.
+ 
+import math,time
+def calculate_time(func):
+    def get_time(*args,**kwargs):
+
+        stime = time.time()
+        func(*args,**kwargs)
+        etime = time.time()
+        print ("total time:",func.__name__,stime-etime)
+
+    return  get_time()
+@calculate_time
+def factorial(num):
+    print math.factorial(num)
+
+factorial(10)
+-----------------------------------
+ 
+WRAPPED FUNCTION - function with a set of common behaviors.
+
+---------------------------------------------------------------
+MEMOIZATION is a technique of recording the intermediate results so that it can be used to avoid repeated calculations and speed up the programs.
+ It can be used to optimize the programs that use recursion. In Python, memoization can be done with the help of function decorators.
+
+def memoize_factorial(f):
+	memory = {}
+	def inner(num):
+		if num not in memory:	 
+			print("g ")
+			memory[num] = f(num)
+		return memory[num]
+	return inner
+	
+@memoize_factorial
+def calculate_factorial(num):
+	if num == 1:
+		return 1
+	else:
+		return num * calculate_factorial(num-1)
+
+print(calculate_factorial(5))
+----------------------------------------------------------------- 
+
+ OOPS++++++++++++++++++++++++++++++++++++
+
+Class
+Here we can take Human Being as a class. A class is a blueprint for any functional entity which defines its properties and its functions.
+ Like Human Being, having body parts, and performing various actions.
+
+	CLASSES ARE COLLECTION OF VARIABLES, AND FUNCTIONS, THAT ARE BOUND TOGETHER.
+
+
+Inheritance
+Considering HumanBeing a class, which has properties like hands, legs, eyes etc, and functions like walk, talk, eat, see etc.
+Male and Female are also classes, but most of the properties and functions are included in HumanBeing, hence they can inherit everything from class HumanBeing using the concept of Inheritance.
+
+Objects
+My name is Abhishek, and I am an instance/object of class Male. When we say, Human Being, Male or Female, we just mean a kind, you, your friend, me we are the forms of these classes.
+ We have a physical existence while a class is just a logical definition. We are the objects.
+ 
+	OBJECTS ARE INSTANCES OF CLASS, WHICH HOLDS THE DATA VARIABLES DECLARED IN THE CLASS AND THE MEMBER FUNCTIONS WORK ON THESE CLASS OBJECTS.
+
+
+Abstraction
+Abstraction means, showcasing only the required things to the outside world while hiding the details.
+Continuing our example, Human Being's can talk, walk, hear, eat, but the details are hidden from the outside world. We can take our skin as the Abstraction factor in our case, hiding the inside mechanism.
+
+Encapsulation
+This concept is a little tricky to explain with our example. Our Legs are binded to help us walk. Our hands, help us hold things. This binding of the properties to functions is called Encapsulation.
+
+Polymorphism
+Polymorphism is a concept, which allows us to redefine the way something works, by either changing how it is done or by changing the parts using which it is done. Both the ways have different terms for them.
+
+https://www.studytonight.com/python/oops-basics-python
+
+
+
+
+Like DESTRUCTOR is counter-part of a CONSTRUCTOR, function __del__ is the counter-part of function __new__. Because __new__ is the function which creates the object.
+__del__ method is called for any object when the reference count for that object becomes zero.
+As reference counting is performed, hence it is not necessary that for an object __del__ method will be called if it goes out of scope. The destructor method will only be called when the reference count becomes zero
+
+
+
+The FINALLY block is always executed, so it is generally used for doing the concluding tasks like closing file resources or closing database connection or may be ending the program execution with a delightful message.
+
+
+
+https://www.tutorialspoint.com/What-is-the-difference-between-session-and-cookies
+
+
+WITHOUT USING LAMBDA : Here, both of them returns the cube of a given number. But, while using def,we needed to define a function with a name cube and needed to pass a value to it.
+ After execution, we also needed to return the result from where the function was called using the return keyword.
+ 
+USING LAMBDA : Lambda definition does not include a “return” statement, it always contains an expression which is returned.
+ We can also put a lambda definition anywhere a function is expected, and we don’t have to assign it to a variable at all. This is the simplicity of lambda functions.
+ 
+ FILTER() :
+ 
+ The filter() function in Python takes in a function and a list as arguments. This offers an elegant way to filter out all the elements of a sequence “sequence”, for which the function returns True.
+ Here is a small program that returns the odd numbers from an input list:
+
+# Python code to illustrate 
+# filter() with lambda() 
+li = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+final_list = list(filter(lambda x: (x%2 != 0) , li)) 
+print(final_list) 
+Output:
+
+[5, 7, 97, 77, 23, 73, 61]
+
+USE OF LAMBDA() WITH MAP():
+
+The map() function in Python takes in a function and a list as argument. The function is called with a lambda function and a list and a new list is returned which contains all the lambda 
+modified items returned by that function for each item. 
+
+# Python code to illustrate  
+# map() with lambda()  
+# to get double of a list. 
+li = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+final_list = list(map(lambda x: x*2 , li)) 
+print(final_list) 
+Output:    [10, 14, 44, 194, 108, 124, 154, 46, 146, 122]
+
+
+USE OF LAMBDA() WITH REDUCE()
+
+The reduce() function in Python takes in a function and a list as argument. The function is called with a lambda function and a list and a new reduced result is returned.
+ This performs a repetitive operation over the pairs of the list. This is a part of functools module. Example:
+
+# Python code to illustrate  
+# reduce() with lambda() 
+# to get sum of a list 
+from functools import reduce
+li = [5, 8, 10, 20, 50, 100] 
+sum = reduce((lambda x, y: x + y), li) 
+print (sum) 
+Output:   193
+
+
+self(): self represents the instance of the class. By using the “self” keyword we can access the attributes and methods of the class in python. It binds the attributes with the given arguments
+
+
+--------------------------------------
+testdata=[{'Associate ID': [u'103', u'138', u'129']}, {'Associate Name': [u'DAYAL BABU', u'VENKATESHWAR REDDY P', u'BADRINATH']},{'Associate Job': ['a','b','c']},{'Associate Sal': ['10000','20000','30000']}, ]
+newlist = []
+for count,j in enumerate(testdata):
+    for k,v in j.items():
+        #print k,v
+        for c,val in enumerate(v):
+            if count==0:
+                newlist.append({k: val})
+            else:
+                print ">>>"
+                newlist[c].update({k:val})
+print newlist
+-----------------------------------------------------------
+MONKEY PATCHING: Dynamic modifications of a class/module at run time
+
+Ex:
+
+#monkeypatchingex.py
+class MEx:
+	def f1:
+		print ('Monkey patching ex')
+	
+import monkeypatchingex
+def f2:
+	print ('This shuld print')
+			
+monkeypatchingex.MEx.f1()=f2
+obj= MEx()
+MEx.f1()
+
+Output : This shuld print
+
+=-------------------
+The BREAK statement stops the execution of the current loop. and transfers control to the next block.
+ The CONTINUE statement ends the current block’s execution and jumps to the next iteration of the loop.
+ 
+-----------------------------------
+import time
+from threading import Thread
+import thread
+from thread import start_new_thread
+
+def time_it(func):
+    def time_chk(*args, **kwargs):
+        sTime = time.time()
+        func(*args, **kwargs)
+        eTime = time.time()
+        print ("done in {0}".format(eTime - sTime))
+
+    return time_chk
+
+@time_it
+def make_square():
+    for i in range(10):
+        print (pow(i, 2))
+        print("\n")
+        time.sleep(1)
+
+@time_it
+def make_cube():
+    for i in range(10):
+        print (pow(i, 3))
+        print("\n")
+        time.sleep(1)
+@time_it
+def main():
+    t1 = Thread(target=make_square)
+    t2 = Thread(target=make_cube)
+    t1.daemon = True
+    t2.daemon = True
+    t1.start()
+    t2.start()
+    time.sleep(3)
+    # t1.join()
+    # t2.join()
+main()
+print ("main is done")
+
+
