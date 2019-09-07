@@ -5,6 +5,15 @@ https://www.w3resource.com/python-exercises/data-structures-and-algorithms/pytho
 https://medium.com/velotio-perspectives/an-introduction-to-asynchronous-programming-in-python-af0189a88bbb  #Threading
 
 https://stackabuse.com/introduction-to-pythons-collections-module/
+===========================================
+In Python 3.x, we can use the end keyword argument in the print method to specify the termination character for the printed string:
+
+print('Banana', end=' ')
+print('pudding.')
+Output:
+
+Banana pudding.
+=============================
 
 
 
